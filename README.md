@@ -32,8 +32,8 @@ cat < EOF >> Dockerfile
 FROM alpine
 RUN apk update && apk add qemu-system-x86_64 libvirt qemu-img bash
 
-COPY freebsd.img /base_image/freebsd.img
-CMD ["/usr/bin/qemu-system-x86_64", "-curses", "/base_image/freebsd.img"]
+COPY FreeBSD-11.0-RELEASE-amd64.qcow2 /base_image/FreeBSD-11.0-RELEASE-amd64.qcow2
+CMD ["/usr/bin/qemu-system-x86_64", "-curses", "/base_image/FreeBSD-11.0-RELEASE-amd64.qcow2"]
 EOF
 ```
 
