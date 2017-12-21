@@ -1,6 +1,14 @@
 # freebsd-sidecar
 A very experimental way to run FreeBSD as a Kubernetes workload 
 
+# WARNING
+
+This is a _very_ experimental work, not suitable for production yet. The initial drive for this experience was curiosity: can that be done ? Can I run FreeBSD as a workload inside of a Kubernetes cluster?
+
+# Solution
+
+The solution involves running FreeBSD as a qemu workload with Arch Linux being the base OS.
+
 ## The Dockerfile
 
 ```bash
