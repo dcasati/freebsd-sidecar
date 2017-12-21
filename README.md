@@ -11,6 +11,18 @@ This is a _very_ experimental work, not suitable for production yet. The initial
 
 The solution involves running FreeBSD as a qemu workload with Arch Linux being the base OS.
 
+# Prerequisites
+
+- FreeBSD qcow2 image: 
+  ```bash
+  wget http://ftp.freebsd.org/pub/FreeBSD/releases/VM-IMAGES/11.0-RELEASE/amd64/Latest/FreeBSD-11.0-RELEASE-amd64.qcow2.xz
+  ```
+- unpack the image
+
+  ```bash
+  xz -d FreeBSD-11.0-RELEASE-amd64.qcow2.xz
+  ```
+
 ## The Dockerfile
 
 ```bash
@@ -28,8 +40,8 @@ EOF
 ```bash
  docker build -t dcasati/inceptionbsd  .
  ```
-Output
-> ```bash
+> Output
+```bash
 dcasati@ubuntu:~/freebsd-sidecar$ docker build -t dcasati/inceptionbsd  .
 Sending build context to Docker daemon 1.862 GB
 Step 1/4 : FROM alpine
@@ -52,9 +64,6 @@ Successfully built e48a48352469
 ```bash
 docker run -it  dcasati/inceptionbsd
 ```
-
-
-
 
 ## Deploying on Kubernetes
 
