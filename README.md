@@ -44,22 +44,21 @@ spec:
         ports:
         - containerPort: 22
  ```
- 
-1. Deploy
+2. Deploy
 
 ```bash
 $ kubectl create -f deployment.yml
 deployment "freebsd-sidecar" created
 ```
 
-1. Check the deployment
+3. Check the deployment
 
 ```bash
 $ kubectl get pod -l app=freebsd
 NAME                              READY     STATUS    RESTARTS   AGE
 freebsd-sidecar-556972417-j7zmn   1/1       Running   0          1m
 ```
-1. Attach to the FreeBSD image
+4. Attach to the FreeBSD image
 
 ```bash
 kubectl attach -it freebsd-sidecar-556972417-j7zmn 
