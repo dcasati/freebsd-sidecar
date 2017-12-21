@@ -1,3 +1,5 @@
+
+
 # freebsd-sidecar
 A very experimental way to run FreeBSD as a Kubernetes workload 
 
@@ -20,6 +22,39 @@ COPY freebsd.img /base_image/freebsd.img
 CMD ["/usr/bin/qemu-system-x86_64", "-curses", "/base_image/freebsd.img"]
 EOF
 ```
+
+## Create the Docker Image
+
+```bash
+ docker build -t dcasati/inceptionbsd  .
+ ```
+Output
+> ```bash
+dcasati@ubuntu:~/freebsd-sidecar$ docker build -t dcasati/inceptionbsd  .
+Sending build context to Docker daemon 1.862 GB
+Step 1/4 : FROM alpine
+ ---> e21c333399e0
+Step 2/4 : RUN apk update && apk add qemu-system-x86_64 libvirt qemu-img bash
+ ---> Using cache
+ ---> d7a082846326
+Step 3/4 : COPY FreeBSD-11.0-RELEASE-amd64.qcow2 /base_image/FreeBSD-11.0-RELEASE-amd64.qcow2
+ ---> daf9217211a3
+Removing intermediate container 83aeaf776a1c
+Step 4/4 : CMD /usr/bin/qemu-system-x86_64 -curses /base_image/FreeBSD-11.0-RELEASE-amd64.qcow2
+ ---> Running in 2bf4280c5111
+ ---> e48a48352469
+Removing intermediate container 2bf4280c5111
+Successfully built e48a48352469
+```
+
+## Testing the new image locally
+
+```bash
+docker run -it  dcasati/inceptionbsd
+```
+
+
+
 
 ## Deploying on Kubernetes
 
