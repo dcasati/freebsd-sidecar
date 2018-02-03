@@ -72,7 +72,7 @@ docker run -it  dcasati/inceptionbsd
 1. Create a deployment file
 
 ```bash
-cat < EOF >> deployment.yml
+cat << EOF > deployment.yml
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
