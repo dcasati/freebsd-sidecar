@@ -28,7 +28,7 @@ The solution involves running FreeBSD as a qemu workload with Arch Linux being t
 ## The Dockerfile
 
 ```bash
-cat < EOF >> Dockerfile
+cat << EOF > Dockerfile
 FROM alpine
 RUN apk update && apk add qemu-system-x86_64 libvirt qemu-img bash
 
